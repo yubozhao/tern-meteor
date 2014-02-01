@@ -239,7 +239,7 @@
       "clearInterval": "fn(id: number)",
       "subscribeWithPagination": "fn(collection: string, limit: number) -> IMeteorHandle",
       "Template": "fn()",
-      "Router": "IMeteorRouter",
+      "Router": "IronRouter",
       "Errors": "IMeteorErrors"
     },
     "IMeteorCursor": {
@@ -457,28 +457,38 @@
     "Assets": "IMeteorAssets",
     "DPP": "IMeteorDPP",
     "changed": "fn(collection: string, id: string, fields: ?, Object: ?)",
-    "IMeteorRouter": {
-      "page": "fn()",
-      "add": "fn(route: Object)",
-      "to": "fn(path: string)",
-      "filters": "fn(filtersMap: Object)",
+    "IronRouter": {
+      "map": "?",
+      "configure": "IronRouterConfig",
+      "route": "(path: 'path', config: IronRouterRouteConfig)",
+      "redirect": "(path: string)",
       "filter": "fn(filterName: string, options?: Object)",
-      "map": "fn(routeMap: fn())",
       "path": "fn(route: string, params?: Object)",
-      "url": "fn(route: string)",
-      "routes": "Object",
       "configure": "fn(options: IMeteorRouterConfig)"
     },
-    "IMeteorRouterConfig": {
-      "layout": "string",
+    "IronRouterConfig": {
+      "autoRender": "bool",
       "notFoundTemplate": "string",
       "loadingTemplate": "string",
+    },
+    "IronRouterRouteConfig": {
+      "path": "string",
+      "where": "string",
+      "controller": "string",
+      "template": "string",
+      "layoutTemplate": "string",
+      "yieldTemplate": "Object",
+      "before": "?",
+      "waitOn": "fn()",
+      "data": "fn()",
+      "action": "fn()",
+      "unload": "fn()",
       "renderTemplates": "Object"
     },
     "IMeteorErrors": {
       "throw": "fn(message: string)",
       "clear": "fn()"
     },
-    "Router": "IMeteorRouter"
+    "Router": "IronRouter"
   };
 });
